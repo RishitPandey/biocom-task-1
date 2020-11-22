@@ -23,7 +23,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
-app.get('/home',(req,res) => {
+app.get('/',(req,res) => {
     res.render('homepage');
 });
 
