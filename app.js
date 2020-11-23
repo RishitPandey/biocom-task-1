@@ -49,7 +49,7 @@ app.post('/signup',async (req,res) => {
     try {
         await db.collection('users').doc('/' + newuser.name + '/')
         .set(newuser);
-        return res.redirect('/home');
+        return res.redirect('/');
     } catch(error) {
         console.log(error);
         return res.status(400).send(error);
@@ -64,7 +64,7 @@ app.post('/login',async (req,res) => {
         let usrdata = usr.data();
         let email, password = req.body;
         if(req.body.email === usrdata.email && req.body.password === usrdata.password) {
-            return res.redirect('/home');
+            return res.redirect('/');
         } else {
             return res.send('Invalid Credentials!');
         }
