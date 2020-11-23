@@ -45,7 +45,7 @@ app.post('/signup',async (req,res) => {
     const userdocument = db.collection('user').doc(newuser.name);
     let user = await userdocument.get();
     let response = user.data();
-      if(response !== undefined) return res.status(400).send('Already Exists!);
+      if(response !== undefined) return res.status(400).send('Already Exists!');
     try {
         await db.collection('users').doc('/' + newuser.name + '/')
         .set(newuser);
